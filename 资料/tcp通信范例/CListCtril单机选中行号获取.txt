@@ -1,0 +1,14 @@
+//获取单机所在行号
+	int n  =0;
+	DWORD dwPos = GetMessagePos();
+	CPoint point(LOWORD(dwPos),HIWORD(dwPos));
+	m_lsLiving.ScreenToClient(&point);
+    LVHITTESTINFO lvinfo;
+	lvinfo.pt = point;
+
+	int nitem = m_lsLiving.HitTest(&lvinfo);
+	if (nitem != -1)
+
+	{
+		n = lvinfo.iItem;
+	}
